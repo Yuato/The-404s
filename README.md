@@ -1,8 +1,8 @@
-#The 404s
+# The 404s
 Slogan: Code, create, scale!
 <br>
-Roles
-<br>:
+Roles:
+<br>
 Tony - about.html
 <br>
 Shreeya - index.html
