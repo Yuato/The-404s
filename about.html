@@ -1,37 +1,95 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8"> 
-        <title>Company</title>  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel = "stylesheet" href = "css/styles.css"> 
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <title>About | The 404s</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
     <body>
         <div id="container">
-            <div id="nav">
-                <img src = "images/placeholder.jpg">
-                <a href = "index.html">Home</a> 
-                
-                <a href = "about.html">about</a> 
-                
-                <a href = "showcase.html">showcase</a> 
-                
-                <a href = "project.html">project</a> 
-            </div>
+            <nav id="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">404</div>
+                    <span>The 404s</span>
+                </a>
 
-            <div id="header"> 
-                <h1>Title</h1>
-            </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="showcase.html">Showcase</a>
+                    <a href="project.html">Project</a>
+                    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+                </div>
+            </nav>
 
-            <div id = "content">
-                <p>About stuff...</p>
-            </div>
-            
-            <div id="footer"> </div>
+            <header id="header" style="min-height: auto; padding-top: 140px; padding-bottom: 40px;">
+                <div class="cool-highlight">
+                    <span>About Us</span>
+                </div>
+                <h1>We're <span>The 404s</span></h1>
+                <p class="h-subtitle">
+                    A team of passionate developers and designers on a mission to create web experiences that matter.
+                </p>
+            </header>
+
+
+            <footer id="footer">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo">
+                            <div class="logo-icon">404</div>
+                            <span>The 404s</span>
+                        </a>
+                        <p class="h-subtitle">
+                            A creative web development agency turning errors into opportunities.
+                        </p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="showcase.html">Showcase</a></li>
+                            <li><a href="project.html">Project</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#services">Web Design</a></li>
+                            <li><a href="index.html#services">Development</a></li>
+                            <li><a href="index.html#services">Database</a></li>
+                            <li><a href="index.html#services">Maintenance</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:hello@the404s.dev">hello@the404s.dev</a></li>
+                            <li><a href="#">McMaster University</a></li>
+                            <li><a href="#">Hamilton, ON</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 The 404s. All rights reserved.</p>
+                    <p>With 💜 by The 404s Team</p>
+                </div>
+            </footer>
         </div>
-        
-        
+
+
 
     </body>
+
 </html>

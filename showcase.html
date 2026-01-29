@@ -1,37 +1,117 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8"> 
-        <title>Company</title>  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel = "stylesheet" href = "css/styles.css"> 
-    </head>
-    <body>
-        <div id="container">
-            <div id="nav">
-                <img src = "images/placeholder.jpg">
-                <a href = "index.html">Home</a> 
-                
-                <a href = "about.html">about</a> 
-                
-                <a href = "showcase.html">showcase</a> 
-                
-                <a href = "project.html">project</a> 
-            </div>
 
-            <div id="header"> 
-                <h1>Title</h1>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <title>Showcase | The 404s</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
-            <div id = "content">
-                <p>Content stuff ...</p>
+<body>
+    <div id="container">
+        <nav id="nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">404</div>
+                <span>The 404s</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="showcase.html" class="active">Showcase</a>
+                <a href="project.html">Project</a>
+                <a href="index.html#contact" class="nav-cta">Get in Touch</a>
             </div>
-            
-            <div id="footer"> </div>
+        </nav>
+        <!-- Add a nice header
+        <header id="header">
+            <div class="cool-highlight">
+                <span>Our Work</span>
+            </div>
+        </header>-->
+
+        <div id="content">
+            <section class="why-us">
+                <span class="section-highlight">Lab Projects</span>
+                <h2 class="section-title">Our Assignments</h2>
+                <p class="section-subtitle">
+                    Check out the work we've completed for our web development course.
+                </p>
+
+                <div class="card">
+                    <h3>Task 1: Website Analysis</h3>
+                    <p>
+                        An analysis of good vs bad web design principles, comparing Arngren.net with Apple.com.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Lab 3.2</span>
+                        <span class="tag">Design Principles</span>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <a href="task1.html" class="btn-first" target="_blank" style="display: inline-flex;">
+                            View Task 1
+                            <span class="btn-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+
         </div>
-        
-        
 
-    </body>
+
+
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">404</div>
+                        <span>The 404s</span>
+                    </a>
+                    <p class="h-subtitle">
+                        A creative web development agency turning errors into opportunities.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="showcase.html">Showcase</a></li>
+                        <li><a href="project.html">Project</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Web Design</a></li>
+                        <li><a href="index.html#services">Development</a></li>
+                        <li><a href="index.html#services">Database</a></li>
+                        <li><a href="index.html#services">Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@the404s.dev">hello@the404s.dev</a></li>
+                        <li><a href="#">McMaster University</a></li>
+                        <li><a href="#">Hamilton, ON</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 The 404s. All rights reserved.</p>
+                <p>With 💜 by The 404s Team</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
 </html>
