@@ -213,6 +213,32 @@ h4 {
     margin-top: 20px;
 }
 
+#content{
+    text-align: center;
+}
+
+#content #team{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#content .person{
+    width:50%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.person h1{
+    margin: 0px;
+}
+
+.person p{
+    margin:0px;
+}
+
 footer {
     border-top: 1px solid #eee;
     margin-top: 60px;
