@@ -1,141 +1,57 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>Project | The 404s</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
-    <div id="container">
-        <nav id="nav">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">404</div>
-                <span>The 404s</span>
-            </a>
-
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="showcase.html">Showcase</a>
-                <a href="project.html" class="active">Project</a>
-                <a href="index.html#contact" class="nav-cta">Get in Touch</a>
-            </div>
+    <header class="header">
+        <nav class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="showcase.html">Showcase</a>
+            <a class="active" href="project.html">Project</a>
         </nav>
 
-        <header id="header" style="min-height: auto; padding-top: 140px; padding-bottom: 40px;">
-            <div class="cool-highlight">
-                <span>Our Work</span>
-            </div>
-            <h1><span>Pages Found</span></h1>
-            <p class="h-subtitle">
-                Explore our portfolio of innovative web solutions and digital experiences that have helped our clients
-                reach new heights.
-            </p>
-        </header>
+        <h2 class="title">The 404s</h2>
 
-        <div id="content">
-            <section class="why-us">
-                <div class="card">
-                    <div class="project-header">
-                        <span class="section-highlight">Client Project</span>
-                        <div>
-                            <span><strong>Client:</strong> Vinay Paramanand (Co-Founder)</span> |
-                            <span><strong>Timeline:</strong> April 2026</span> |
-                            <span><strong>Status:</strong> Onboarding</span>
-                        </div>
-                    </div>
+        <div class="social-links">
+            <a href="mailto:hello@the404s.dev">
+                <img src="images/email.svg" alt="Email" width="24" height="24">
+            </a>
+            <a href="https://github.com/the404s" target="_blank">
+                <img src="images/github.svg" alt="GitHub" width="24" height="24">
+            </a>
+        </div>
+    </header>
 
-                    <h3>Youth2Opportunities (Y2O)</h3>
+    <h3>Our current and past projects.</h3>
 
-                    <div>
-                        <div>
-                            <h4>Project Summary</h4>
-                            <p>
-                                Building a platform that connects young people aged 12-22 with internships, learning
-                                opportunities, and career resources. The platform includes user profiles, project
-                                showcases, opportunity listings, and gamification features to encourage engagement.
-                            </p>
-                        </div>
-                        <div>
-                            <h4>Our Role</h4>
-                            <p>
-                                Revamping the existing <a href="https://www.youth2opportunities.ca/"
-                                    style="color: #a78bfa;">Y2O website</a> to
-                                improve user experience, implement a proper database structure, and create a modern,
-                                responsive design that appeals to the target youth audience.
-                            </p>
-                        </div>
-                    </div>
+    <div class="card">
+        <h4>Youth2Opportunities (Y2O)</h4>
+        <p class="card-meta">Client: Vinay Paramanand | Timeline: April 2026 | Status: Onboarding</p>
 
-                    <div class="card-tags">
-                        <span class="tag">Youth</span>
-                        <span class="tag">Students</span>
-                        <span class="tag">Early Career</span>
-                    </div>
+        <p>Building a platform that connects young people aged 12-22 with internships, learning opportunities, and
+            career resources.</p>
 
-                    <div style="margin-top: 24px;">
-                        <a href="y2o.html" class="btn-first" target="_blank" style="display: inline-flex;">
-                            View Report
-                            <span class="btn-arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
+        <div class="card-section">
+            <h5>Our Role</h5>
+            <p>Revamping the existing <a href="https://www.youth2opportunities.ca/" target="_blank"
+                    style="color: blue;">Y2O website</a>
+                to improve user experience, implement a database structure, and create a responsive design.</p>
         </div>
 
-        <footer id="footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <div class="logo-icon">404</div>
-                        <span>The 404s</span>
-                    </a>
-                    <p class="h-subtitle">
-                        A creative web development agency turning errors into opportunities.
-                    </p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="showcase.html">Showcase</a></li>
-                        <li><a href="project.html">Project</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Web Design</a></li>
-                        <li><a href="index.html#services">Development</a></li>
-                        <li><a href="index.html#services">Database</a></li>
-                        <li><a href="index.html#services">Maintenance</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:hello@the404s.dev">hello@the404s.dev</a></li>
-                        <li><a href="#">McMaster University</a></li>
-                        <li><a href="#">Hamilton, ON</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 The 404s. All rights reserved.</p>
-                <p>With 💜 by The 404s Team</p>
-            </div>
-        </footer>
+        <a href="y2o.html" target="_blank" class="card-link">View Report →</a>
     </div>
 
+    <footer>
+        <p>© 2026 The 404s</p>
+        <p>McMaster University · Hamilton, ON</p>
+    </footer>
 </body>
 
 </html>
