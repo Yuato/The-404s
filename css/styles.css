@@ -8,7 +8,15 @@ body {
     line-height: 1.6;
 }
 
-a {
+a{
+    color: inherit;
+}
+
+a:hover{
+    color:purple;
+}
+
+.header a {
     color: inherit;
     text-decoration: none;
 }
@@ -147,28 +155,6 @@ h4 {
     background: #444;
 }
 
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 900px;
-    margin: 20px auto;
-}
-
-.grid-2 .card,
-.grid-3 .card {
-    margin: 0;
-    max-width: none;
-}
-
 .simple-list {
     list-style: none;
     padding: 0;
@@ -240,19 +226,7 @@ footer p {
     margin: 4px 0;
 }
 
-@media (max-width: 768px) {
-    .grid-2,
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        width: 100%;
-        max-width: none;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .header {
         flex-direction: column;
         align-items: flex-start;
