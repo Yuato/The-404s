@@ -1,49 +1,55 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>The 404s</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Professional Profile</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header class="header">
-        <nav class="nav-left">
-            <a class="active" href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="showcase.html">Showcase</a>
-            <a href="project.html">Project</a>
-        </nav>
+    <div class="profile-container">
+        <!-- Header Section -->
+        <header class="profile-header">
+            <div class="banner"></div>
+            <div class="header-content">
+                <img src="placeholder.jpg" alt="Profile Picture" class="pfp">
+                <div class="user-info">
+                    <h1>User</h1>
+                    <p class="headline">Current Position</p>
+                    <p class="location">Location</p>
+                </div>
+            </div>
+        </header>
 
-        <h2 class="title">The 404s</h2>
+        <!-- About Section -->
+        <section class="profile-card">
+            <h3>About</h3>
+            <p>Short Description</p>
+        </section>
 
-        <div class="social-links">
-            <a href="mailto:hello@the404s.dev">
-                <img src="images/email.svg" alt="Email" width="24" height="24">
-            </a>
-            <a href="https://github.com/the404s" target="_blank">
-                <img src="images/github.svg" alt="GitHub" width="24" height="24">
-            </a>
-        </div>
-    </header>
+        
+        <section class="profile-card">
+            <h3>Education & Projects</h3>
+            <div class="item">
+                <strong>Title</strong>
+                <p>Time Frame</p>
+            </div>
+            <div class="item">
+                <strong>Title</strong>
+                <p>Short Description</p>
+            </div>
+        </section>
 
-    <h3>Hi, we're The 404s — a student web development team at <a href="https://www.mcmaster.ca/" target="_blank"
-            style="color: blue;">McMaster University</a>. We build clean, functional websites.</h3>
-
-    <h4 style="margin-top: 60px;">Let's build something</h4>
-    <p style="text-align: center; color: #666;">Have a project in mind? We'd like to hear about it.</p>
-
-    <div class="buttons">
-        <a href="mailto:hello@the404s.dev" class="btn">Contact Us →</a>
-        <a href="project.html" class="btn btn-outline">View Our Work →</a>
+        <!-- Skills Section -->
+        <section class="profile-card">
+            <h3>Skills</h3>
+            <div class="skills-list">
+                <span>Skill 1</span>
+                <span>Skill 2</span>
+                <span>Skill 3</span>
+                <span>Skill 4</span>
+            </div>
+        </section>
     </div>
-
-    <footer>
-        <p>© 2026 The 404s</p>
-        <p>McMaster University · Hamilton, ON</p>
-    </footer>
 </body>
-
 </html>
