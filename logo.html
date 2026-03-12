@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html>
+  <body>
+    <div style="position: relative">
+      <img
+        style="position: absolute; top: 50px; left: 50px"
+        src="images/teapot.png"
+        alt="Teapot Logo"
+        id="teapot"
+      />
+      <canvas
+        id="myCanvas"
+        style="position: absolute; top: 50px; left: 50px"
+        width="500"
+        height="500"
+      >
+      </canvas>
+    </div>
+
+    <script>
+      class gear {
+        constructor(centerX, centerY, numberOfTeeth, toothWidth, toothHeight) {
+          this.centerX = centerX;
+          this.centerY = centerY;
+          this.numberOfTeeth = numberOfTeeth;
+          this.toothWidth = toothWidth;
+          this.toothHeight = toothHeight;
+          this.rotation = 0;
+        }
+
+        draw(ctx) {
+          const radius = 25;
+
+          ctx.save();
+          ctx.translate(this.centerX, this.centerY);
+          ctx.rotate(this.rotation);
+
+          ctx.beginPath();
+          for (let i = 0; i < this.numberOfTeeth; i++) {
+            const angle = (i / this.numberOfTeeth) * 2 * Math.PI;
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            ctx.lineTo(x, y);
+            ctx.lineTo(
+              x + this.toothWidth * Math.cos(angle),
+              y + this.toothWidth * Math.sin(angle),
+            );
+          }
+          ctx.closePath();
+          ctx.arc(0, 0, radius / 1.25, 0, 2 * Math.PI);
+          ctx.strokeStyle = "black";
+          ctx.lineWidth = 2;
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }
+
+      const myCanvas = document.getElementById("myCanvas");
+      const ctx = myCanvas.getContext("2d");
+
+      const leftGear = new gear(
+        myCanvas.width / 2 - 35,
+        myCanvas.height / 2 - 80,
+        10,
+        10,
+        40,
+      );
+
+      const rightGear = new gear(
+        myCanvas.width / 2 - 110,
+        myCanvas.height / 2 - 80,
+        10,
+        10,
+        40,
+      );
+
+      function animate() {
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+        leftGear.rotation += 0.01;
+        rightGear.rotation -= 0.01;
+
+        leftGear.draw(ctx);
+        rightGear.draw(ctx);
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
