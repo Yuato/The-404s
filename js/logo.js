@@ -35,8 +35,68 @@ class gear {
         ctx.restore();
     }
 }
+
+class Steam {
+    constructor(startX, startY, width, height){
+        this.startX = startX;
+        this.startY = startY;
+        this.width = width;
+        this.height = height;
+        this.adjust = 0;
+        this.sway = 0;
+    }
+
+    update(){
+        if (this.adjust >= this.width/6){
+            this.sway = 1;
+        }
+        else if (this.adjust <= 0){
+            this.sway = 0;
+        }
+        if (this.sway == 0) {
+            this.adjust += this.width/3600;
+        }
+        else{
+            this.adjust -= this.width/3600;
+        }
+    }
+
+    draw(ctx){
+        let length = this.height/6;
+        ctx.beginPath();
+        ctx.moveTo(this.startX, this.startY);
+        ctx.quadraticCurveTo(
+            2*this.startX+this.width/50 + this.adjust, 
+            this.startY-length/2, 
+            this.startX+this.width/30, 
+            this.startY - length
+        );
+        ctx.quadraticCurveTo(
+            this.startX-this.width/50 - this.adjust, 
+            this.startY-length*3/2, 
+            this.startX+this.width/30, 
+            this.startY - length*2
+        );
+        ctx.quadraticCurveTo(
+            -this.width/50 - this.adjust, 
+            this.startY-length*3/2, 
+            0 + this.width/100 , 
+            this.startY - length
+        );
+        ctx.quadraticCurveTo(
+            this.startX+this.width/50 + this.adjust, 
+            this.startY-length/2, 
+            this.startX, 
+            this.startY
+        );
+
+        ctx.stroke();
+    }
+}
+
 window.addEventListener("load", function(){
     const myCanvas = document.getElementById("myCanvas");
+    const teapot = document.getElementById("teapot");
     const ctx = myCanvas.getContext("2d");
 
     const leftGear = new gear(
@@ -55,16 +115,20 @@ window.addEventListener("load", function(){
     40,
     );
 
+    const steam = new Steam(teapot.width/20, teapot.height/2.5, teapot.width, teapot.height);
+
     function animate() {
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
-    leftGear.rotation += 0.01;
-    rightGear.rotation -= 0.01;
+        leftGear.rotation += 0.01;
+        rightGear.rotation -= 0.01;
 
-    leftGear.draw(ctx);
-    rightGear.draw(ctx);
+        leftGear.draw(ctx);
+        rightGear.draw(ctx);
+        steam.draw(ctx);
+        steam.update()
 
-    requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
     }
 
     animate();
