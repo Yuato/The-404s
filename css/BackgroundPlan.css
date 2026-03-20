@@ -15,3 +15,7 @@ table, th, td {
     text-align: center;
     border-collapse: collapse;
 }
+
+img {
+    width: 100%;
+}
