@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Development Plan | The 404s</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/BackgroundPlan.css">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="showcase.html">Showcase</a>
+            <a class="active" href="project.html">Project</a>
+        </nav>
+
+        <h2 class="title">The 404s</h2>
+
+        <div class="social-links">
+            <a href="mailto:hello@the404s.dev">
+                <img src="images/email.svg" alt="Email" width="24" height="24">
+            </a>
+            <a href="https://github.com/the404s" target="_blank">
+                <img src="images/github.svg" alt="GitHub" width="24" height="24">
+            </a>
+        </div>
+    </header>
+
+    <h3>Youth2Opportunities (Y2O) Development Plan</h3>
+
+    <p class="section-label">Names</p>
+
+    <div>
+        <div class="card">
+            <h4>Team Name</h4>
+            <p>
+                The 404s
+            </p>
+            <h4>Team Members</h4>
+            <p>
+                Shreeya, Tony, Omar, Murad
+            </p>
+            <h4>Client</h4>
+            <p>Vinay Paramanand and Pankaj Pant from Youth2Opportunities (a startup)</p>
+            <h4>The App</h4>
+            <p>
+                Youth to Opportunities
+            </p>
+            
+        </div>
+    </div>
+
+    <p class="section-label">Purpose</p>
+
+    <div>
+        <div class="card">
+            <h4>Purpose</h4>
+            <p>
+                The main purpose of Youth2Opportunities (Y2O) is to assist 
+                young people between the age of 12 and 22 to widen their knowledge in academics and potential future pathways. 
+                It serves as a learning platform where students are freely able to 
+                develop new skills, provides a safe environment to learn, and create their digital portfolios.
+            </p>
+        </div>
+    </div>
+
+    <p class="section-label">Data Description</p>
+
+    <div>
+        <div class="card">
+            <table>
+                <caption>
+                    Data Description
+                </caption>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>User</th>
+                        <th>Profile</th>
+                        <th>Projects</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Why we need it:</td>
+                        <td>
+                            This table is required to manage account authentication 
+                            and distinguish between minors, adults, and administrators
+                        </td>
+                        <td>
+                            This table is necessary to build the digital portfolio and 
+                            manage the specific privacy needs of young users.
+                        </td>
+                        <td>
+                            This table allows users to showcase theirhands-on work 
+                            and practical skills to potential mentors or employers.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>What information is stored:</td>
+                        <td> 
+                            It stores core login credentials, 
+                            account roles, and basic timestamps for user registration.
+                        </td>
+                        <td>
+                            It contains personal details such as education level, skills,
+                            and the verification status of parental consent.
+                        </td>
+                        <td>
+                            It stores project titles, descriptions, 
+                            and external links or media that demonstrate a student’s achievements.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Names and data types
+                        </td>
+                        <td>
+                            user_id (UUID, Primary Key), email (String), password_hash (String), 
+                            role (Enum: 'minor', 'adult', 'admin'), created_at (Timestamp).
+                        </td>
+                        <td>
+                            profile_id (UUID, Primary Key), user_id (UUID, Foreign Key), full_name(String), date_of_birth (Date), 
+                            education_level (String), bio (Text), is_private(Boolean), parental_consent_verified (Boolean).
+                        </td>
+                        <td>
+                            project_id (UUID, Primary Key), user_id (UUID, Foreign Key), title(String), 
+                            description (Text), media_url (String), project_link (String), created_at (Timestamp).
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    <p class="section-label">Functions Performed by the app</p>
+    <div>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>
+                        Functionality
+                    </th>
+                    <th>
+                        Implementation
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Login
+                    </td>
+                    <td>
+                        - INSERT: If user wants to create a new account
+                        Includes new username and password, and username must be unique
+                        <br>
+                        - SELECT: Find if username and password is in database
+                        <br>
+                        - Generate a session using PHP for users to use on profile page
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Dashboard
+                    </td>
+                    <td>
+                        - SELECT: Other user profile and a short description from their about page (Clickable to view others profiles)
+                        <br>
+                        - Includes buttons to your own profile
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Update Profile
+                    </td>
+                    <td>
+                        - Generate a session using PHP to verify user
+                        <br>
+                        - SELECT: Find the user's information on the database
+                        <br>
+                        - UPDATE: Users allowed to edit prebuilt sections and add their own descriptions
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Admin
+                    </td>
+                    <td>
+                        - SELECT: finds statistics about users (age, birthday, etc) and displays them
+                        <br>
+                        - UPDATE: Can add to profiles statuses like verified
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <p class="section-label">Roles of Team Members</p>
+    <div>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>
+                        Team Member Name
+                    </th>
+                    <th>
+                        Page responsibility
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Shreeya
+                    </td>
+                    <td>
+                        Login page
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tony
+                    </td>
+                    <td>
+                        Dashboard page
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Omar
+                    </td>
+                    <td>
+                        Profile page and editor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Murad 
+                    </td>
+                    <td>
+                        Admin Page
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <p class="section-label">Wireframes</p>
+    <div>
+        <div class="card">
+            <h4>Login Page</h4>
+            <h4>Dashboard Page</h4>
+            <h4>Profile Page</h4>
+            <h4>Admin Page</h4>
+        </div>
+    </div>
+
+    <p class="section-label">The increments</p>
+    <div >
+        <div class="card">
+            <h4>Description</h4>
+            <p>
+                This first increment focuses on deploying the application to the McMaster server, 
+                establishing the core user interface, and ensuring that basic backend routing is functional 
+                across the platform. For the final increment (due in the middle of exam season), the team will 
+                transition to refining the UI, establishing fully functional backend routing for all features, 
+                and successfully connecting the platform to the database to ensure persistent, dynamic data storage.
+            </p>
+            <div class="card">
+            <table>
+                <tr>
+                    <th>
+                        Team Member
+                    </th>
+                    <th>
+                        Feature Focus
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Shreeya
+                    </td>
+                    <td>
+                        Login page
+                    </td>
+                    <td>
+                        Functioning login and signup forms. 
+                        This includes basic client-side input validation (e.g., password strength and length checks) 
+                        and successful routing to the main dashboard upon submission.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tony
+                    </td>
+                    <td>
+                        User Dashboard
+                    </td>
+                    <td>
+                        A user feed that displays a brief preview of multiple users in a carousel-type 
+                        format, including a couple of sentences from their "About" sections. 
+                        It will also include a sidebar navigation menu linking to the user's personal profile.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Omar
+                    </td>
+                    <td>
+                        Profile page and editor
+                    </td>
+                    <td>
+                        A page structured to display an "About" section, project showcases, and user skills. 
+                        It will feature a functional file upload button that successfully 
+                        selects a file and logs the data to the console.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Murad 
+                    </td>
+                    <td>
+                        Admin Portal
+                    </td>
+                    <td>
+                        A dashboard displaying high-level platform analytics 
+                        (e.g., total registered youth, new signups, age demographics). 
+                        It will include the initial UI allowing admins to assign specific statuses, 
+                        such as a "Verified" badge, to user profiles.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <p class="section-label">Client Feedback</p>
+    <div>
+        <div class="card">
+            <h4>Meeting synopsis</h4>
+            <div class = "card">
+                <p>During our initial consultation with the Youth2Opportunities (Y2O) team, their primary requirements were straightforward: 
+                    a secure login/registration flow and a customizable user profile page for the youth. 
+                    They granted us significant creative freedom regarding the design and user experience.
+                </p>
+            </div>
+            <div class = "card">
+                <p>
+                    When we presented our ideas, which included adding a centralized User Dashboard to view peers and an Admin Portal for Y2O staff, 
+                    they were highly receptive. 
+                    <b>
+                    We plan to collect further, formal feedback on the first coded iteration during Week 12, 
+                    prior to Lab 12.2 to meet the deadline for the first increment.
+                    </b>
+                </p>
+            </div>
+            <div class = "card">
+                <h4>Meeting points</h4>
+                <ul>
+                    <li>
+                        They really liked our idea to include a central dashboard 
+                        where youth can see other members' as it really aligns with our goal of community building."
+                    </li>
+                    <li>
+                        For the admin page you proposed, they loved the analytics. 
+                        They wanted to integrate age demographics and region.
+                    </li>
+                    <li>
+                        Their major request is to keep the interface very clean and accessible. 
+                        They don't want the profile editor to feel too overwhelming for a high schooler filling it out for the first time.
+                    </li>
+                        For the user profile editor section, they also mentioned the
+                         ability for users to upload files from their computer to add onto their portfolio.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Changes Made</h4>
+            <ul>
+                <li>
+                    We officially integrated the User Dashboard (Tony) 
+                    and the Admin Portal (Murad) into our development plan and deliverables, 
+                    as the client confirmed these added significant value beyond their initial scope.
+                </li>
+                <li>
+                    Based on the request for outreach tracking, we updated the requirements for 
+                    Murad's Admin Portal. Alongside age demographics, the initial UI 
+                    and backend data structure will now prioritize sorting and displaying users by "Region."
+                </li>
+                <li>
+                    We added the upload button to the profile editor so that youth could directly attach their resumes or external portfolio documents. 
+                    To accommodate this new Upload Portal without making the interface overwhelming, 
+                    Omar is designing the editor with distinct, visually separated sections 
+                    (About, Projects, Skills, and Uploads) rather than one massive form. 
+                    We are prioritizing clear placeholder text and a minimalist UI to ensure accessibility.
+                </li>
+            </ul>
+    </div>
+
+    <footer>
+        <p>© 2026 The 404s</p>
+        <p>McMaster University · Hamilton, ON</p>
+    </footer>
+</body>
+
+</html>
