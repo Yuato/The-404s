@@ -70,72 +70,193 @@
     </div>
 
     <p class="section-label">Data Description</p>
-
     <div>
         <div class="card">
-            <table>
-                <caption>
-                    Data Description
-                </caption>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>User</th>
-                        <th>Profile</th>
-                        <th>Projects</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Why we need it:</td>
-                        <td>
-                            This table is required to manage account authentication 
-                            and distinguish between minors, adults, and administrators
-                        </td>
-                        <td>
-                            This table is necessary to build the digital portfolio and 
-                            manage the specific privacy needs of young users.
-                        </td>
-                        <td>
-                            This table allows users to showcase theirhands-on work 
-                            and practical skills to potential mentors or employers.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>What information is stored:</td>
-                        <td> 
-                            It stores core login credentials, 
-                            account roles, and basic timestamps for user registration.
-                        </td>
-                        <td>
-                            It contains personal details such as education level, skills,
-                            and the verification status of parental consent.
-                        </td>
-                        <td>
-                            It stores project titles, descriptions, 
-                            and external links or media that demonstrate a student’s achievements.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Names and data types
-                        </td>
-                        <td>
-                            user_id (UUID, Primary Key), email (String), password_hash (String), 
-                            role (Enum: 'minor', 'adult', 'admin'), created_at (Timestamp).
-                        </td>
-                        <td>
-                            profile_id (UUID, Primary Key), user_id (UUID, Foreign Key), full_name(String), date_of_birth (Date), 
-                            education_level (String), bio (Text), is_private(Boolean), parental_consent_verified (Boolean).
-                        </td>
-                        <td>
-                            project_id (UUID, Primary Key), user_id (UUID, Foreign Key), title(String), 
-                            description (Text), media_url (String), project_link (String), created_at (Timestamp).
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="data-tables-wrapper">
+ 
+                <div class="entity-block">
+                    <p class="entity-header">User</p>
+                    <p class="entity-purpose">
+                        Manages account authentication and distinguishes between minors, adults, and administrators.
+                        Stores core login credentials, account roles, and registration timestamps.
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-field">Field</th>
+                                <th class="col-type">Type</th>
+                                <th class="col-const">Constraints</th>
+                                <th class="col-notes">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="field-name">user_id</code></td>
+                                <td>UUID</td>
+                                <td>Primary Key</td>
+                                <td>Unique identifier for every user account</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">email</code></td>
+                                <td>String</td>
+                                <td>Required, Unique</td>
+                                <td>Used for login and account identification</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">password_hash</code></td>
+                                <td>String</td>
+                                <td>Required</td>
+                                <td>Hashed password — never stored in plain text</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">role</code></td>
+                                <td>Enum</td>
+                                <td>Required</td>
+                                <td>One of: <code>'minor'</code>, <code>'adult'</code>, <code>'admin'</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">created_at</code></td>
+                                <td>Timestamp</td>
+                                <td>Auto-generated</td>
+                                <td>Records when the account was registered</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+ 
+                <div class="entity-block">
+                    <p class="entity-header">Profile</p>
+                    <p class="entity-purpose">
+                        Builds the digital portfolio and manages the privacy needs of young users.
+                        Contains personal details, education info, and parental consent verification status.
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-field">Field</th>
+                                <th class="col-type">Type</th>
+                                <th class="col-const">Constraints</th>
+                                <th class="col-notes">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="field-name">profile_id</code></td>
+                                <td>UUID</td>
+                                <td>Primary Key</td>
+                                <td>Unique identifier for each profile</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">user_id</code></td>
+                                <td>UUID</td>
+                                <td>Foreign Key → User</td>
+                                <td>Links the profile to its owner account</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">full_name</code></td>
+                                <td>String</td>
+                                <td>Required</td>
+                                <td>User's display name on their portfolio</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">date_of_birth</code></td>
+                                <td>Date</td>
+                                <td>Required</td>
+                                <td>Used to enforce minor/adult role distinction</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">education_level</code></td>
+                                <td>String</td>
+                                <td>—</td>
+                                <td>e.g., High School, Undergraduate</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">bio</code></td>
+                                <td>Text</td>
+                                <td>—</td>
+                                <td>Free-form "About" section written by the user</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">is_private</code></td>
+                                <td>Boolean</td>
+                                <td>Default: false</td>
+                                <td>Controls whether the profile is publicly visible</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">parental_consent_verified</code></td>
+                                <td>Boolean</td>
+                                <td>Default: false</td>
+                                <td>Required for minors before account is fully active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+ 
+                <div class="entity-block">
+                    <p class="entity-header">Projects</p>
+                    <p class="entity-purpose">
+                        Allows users to showcase hands-on work and practical skills to potential mentors or employers.
+                        Stores project titles, descriptions, and external links or media demonstrating a student's achievements.
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-field">Field</th>
+                                <th class="col-type">Type</th>
+                                <th class="col-const">Constraints</th>
+                                <th class="col-notes">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="field-name">project_id</code></td>
+                                <td>UUID</td>
+                                <td>Primary Key</td>
+                                <td>Unique identifier for each project entry</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">user_id</code></td>
+                                <td>UUID</td>
+                                <td>Foreign Key → User</td>
+                                <td>Links the project to its author</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">title</code></td>
+                                <td>String</td>
+                                <td>Required</td>
+                                <td>Short project name shown on the portfolio</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">description</code></td>
+                                <td>Text</td>
+                                <td>—</td>
+                                <td>Longer explanation of the project's purpose and outcome</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">media_url</code></td>
+                                <td>String</td>
+                                <td>—</td>
+                                <td>Link to an uploaded image, video, or file</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">project_link</code></td>
+                                <td>String</td>
+                                <td>—</td>
+                                <td>External URL (e.g., GitHub repo, live demo)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="field-name">created_at</code></td>
+                                <td>Timestamp</td>
+                                <td>Auto-generated</td>
+                                <td>Records when the project was added</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+ 
+            </div>
         </div>
+    </div>
 
     <p class="section-label">Functions Performed by the app</p>
     <div>
