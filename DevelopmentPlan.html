@@ -1,535 +1,766 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Development Plan | The 404s</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/BackgroundPlan.css">
-    <meta name="viewport" content="width=device-width">
-</head>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/BackgroundPlan.css" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      /* Revision styling — marks changes/additions from the revised dev plan */
+      .revised,
+      .revised p,
+      .revised li,
+      .revised td,
+      .revised th,
+      .revised h4,
+      .revised code {
+        color: #0f8f3e;
+      }
+      .revision-note {
+        color: #0f8f3e;
+        font-style: italic;
+        margin: 0.5em 0 1em 0;
+      }
+      tr.revised td,
+      tr.revised th {
+        color: #0f8f3e;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <nav class="nav-left">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="showcase.html">Showcase</a>
-            <a href="project.html">Project</a>
-            <a class = "active" href="DevelopmentPlan.html">Development plan</a>
-        </nav>
+      <nav class="nav-left">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="project.html">Project</a>
+        <a class="active" href="DevelopmentPlan.html">Development plan</a>
+      </nav>
 
-        <h2 class="title">The 404s</h2>
+      <h2 class="title">The 404s</h2>
 
-        <div class="social-links">
-            <a href="mailto:hello@the404s.dev">
-                <img src="images/email.svg" alt="Email" width="24" height="24">
-            </a>
-            <a href="https://github.com/the404s" target="_blank">
-                <img src="images/github.svg" alt="GitHub" width="24" height="24">
-            </a>
-        </div>
+      <div class="social-links">
+        <a href="mailto:hello@the404s.dev">
+          <img src="images/email.svg" alt="Email" width="24" height="24" />
+        </a>
+        <a href="https://github.com/the404s" target="_blank">
+          <img src="images/github.svg" alt="GitHub" width="24" height="24" />
+        </a>
+      </div>
     </header>
 
-    <h3>Youth2Opportunities (Y2O) Development Plan</h3>
+    <h3>Youth2Opportunities (Y2O) Revised Development Plan</h3>
 
     <p class="section-label">Names</p>
 
     <div>
-        <div class="card">
-            <h4>Team Name</h4>
-            <p>
-                The 404s
-            </p>
-            <h4>Team Members</h4>
-            <p>
-                Shreeya, Tony, Omar, Murad
-            </p>
-            <h4>Client</h4>
-            <p>Vinay Paramanand and Pankaj Pant from Youth2Opportunities (a startup)</p>
-            <h4>The App</h4>
-            <p>
-                Youth to Opportunities
-            </p>
-            
-        </div>
+      <div class="card">
+        <h4>Team Name</h4>
+        <p>The 404s</p>
+        <h4>Team Members</h4>
+        <p>Shreeya, Tony, Omar, Murad</p>
+        <h4>Client</h4>
+        <p>
+          Vinay Paramanand and Pankaj Pant from Youth2Opportunities (a startup)
+        </p>
+        <h4>The App</h4>
+        <p>Youth to Opportunities</p>
+      </div>
     </div>
 
     <p class="section-label">Purpose</p>
 
     <div>
-        <div class="card">
-            <h4>Purpose</h4>
-            <p>
-                The main purpose of Youth2Opportunities (Y2O) is to assist 
-                young people between the age of 12 and 22 to widen their knowledge in academics and potential future pathways. 
-                It serves as a learning platform where students are freely able to 
-                develop new skills, provides a safe environment to learn, and create their digital portfolios.
-            </p>
-        </div>
+      <div class="card">
+        <h4>Purpose</h4>
+        <p>
+          The main purpose of Youth2Opportunities (Y2O) is to assist young
+          people between the age of 12 and 22 to widen their knowledge in
+          academics and potential future pathways. It serves as a learning
+          platform where students are freely able to develop new skills,
+          provides a safe environment to learn, and create their digital
+          portfolios.
+        </p>
+      </div>
     </div>
 
     <p class="section-label">Data Description</p>
     <div>
-        <div class="card">
-            <div class="data-tables-wrapper">
- 
-                <div class="entity-block">
-                    <p class="entity-header">User</p>
-                    <p class="entity-purpose">
-                        Manages account authentication and distinguishes between minors, adults, and administrators.
-                        Stores core login credentials, account roles, and registration timestamps.
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col-field">Field</th>
-                                <th class="col-type">Type</th>
-                                <th class="col-const">Constraints</th>
-                                <th class="col-notes">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code class="field-name">user_id</code></td>
-                                <td>UUID</td>
-                                <td>Primary Key</td>
-                                <td>Unique identifier for every user account</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">email</code></td>
-                                <td>String</td>
-                                <td>Required, Unique</td>
-                                <td>Used for login and account identification</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">password_hash</code></td>
-                                <td>String</td>
-                                <td>Required</td>
-                                <td>Hashed password — never stored in plain text</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">role</code></td>
-                                <td>Enum</td>
-                                <td>Required</td>
-                                <td>One of: <code>'minor'</code>, <code>'adult'</code>, <code>'admin'</code></td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">created_at</code></td>
-                                <td>Timestamp</td>
-                                <td>Auto-generated</td>
-                                <td>Records when the account was registered</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
- 
-                <div class="entity-block">
-                    <p class="entity-header">Profile</p>
-                    <p class="entity-purpose">
-                        Builds the digital portfolio and manages the privacy needs of young users.
-                        Contains personal details, education info, and parental consent verification status.
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col-field">Field</th>
-                                <th class="col-type">Type</th>
-                                <th class="col-const">Constraints</th>
-                                <th class="col-notes">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code class="field-name">profile_id</code></td>
-                                <td>UUID</td>
-                                <td>Primary Key</td>
-                                <td>Unique identifier for each profile</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">user_id</code></td>
-                                <td>UUID</td>
-                                <td>Foreign Key → User</td>
-                                <td>Links the profile to its owner account</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">full_name</code></td>
-                                <td>String</td>
-                                <td>Required</td>
-                                <td>User's display name on their portfolio</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">date_of_birth</code></td>
-                                <td>Date</td>
-                                <td>Required</td>
-                                <td>Used to enforce minor/adult role distinction</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">education_level</code></td>
-                                <td>String</td>
-                                <td>—</td>
-                                <td>e.g., High School, Undergraduate</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">bio</code></td>
-                                <td>Text</td>
-                                <td>—</td>
-                                <td>Free-form "About" section written by the user</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">is_private</code></td>
-                                <td>Boolean</td>
-                                <td>Default: false</td>
-                                <td>Controls whether the profile is publicly visible</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">parental_consent_verified</code></td>
-                                <td>Boolean</td>
-                                <td>Default: false</td>
-                                <td>Required for minors before account is fully active</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
- 
-                <div class="entity-block">
-                    <p class="entity-header">Projects</p>
-                    <p class="entity-purpose">
-                        Allows users to showcase hands-on work and practical skills to potential mentors or employers.
-                        Stores project titles, descriptions, and external links or media demonstrating a student's achievements.
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col-field">Field</th>
-                                <th class="col-type">Type</th>
-                                <th class="col-const">Constraints</th>
-                                <th class="col-notes">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code class="field-name">project_id</code></td>
-                                <td>UUID</td>
-                                <td>Primary Key</td>
-                                <td>Unique identifier for each project entry</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">user_id</code></td>
-                                <td>UUID</td>
-                                <td>Foreign Key → User</td>
-                                <td>Links the project to its author</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">title</code></td>
-                                <td>String</td>
-                                <td>Required</td>
-                                <td>Short project name shown on the portfolio</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">description</code></td>
-                                <td>Text</td>
-                                <td>—</td>
-                                <td>Longer explanation of the project's purpose and outcome</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">media_url</code></td>
-                                <td>String</td>
-                                <td>—</td>
-                                <td>Link to an uploaded image, video, or file</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">project_link</code></td>
-                                <td>String</td>
-                                <td>—</td>
-                                <td>External URL (e.g., GitHub repo, live demo)</td>
-                            </tr>
-                            <tr>
-                                <td><code class="field-name">created_at</code></td>
-                                <td>Timestamp</td>
-                                <td>Auto-generated</td>
-                                <td>Records when the project was added</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
- 
-            </div>
+      <div class="card">
+        <div class="data-tables-wrapper">
+          <div class="entity-block">
+            <p class="entity-header">User</p>
+            <p class="entity-purpose">
+              Manages account authentication for student users. Stores profile
+              details, login credentials, and password reset token information.
+            </p>
+            <p class="revision-note">
+              The entire table was revised to ensure that field names, data
+              types, and constraints align with the SQL database, and the
+              accompanying notes were updated accordingly.
+            </p>
+            <table class="revised">
+              <thead>
+                <tr>
+                  <th class="col-field">Field</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-const">Constraints</th>
+                  <th class="col-notes">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="field-name">id</code></td>
+                  <td>int</td>
+                  <td>Primary Key, Auto-increment</td>
+                  <td>Unique identifier for every student user account</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">full_name</code></td>
+                  <td>varchar</td>
+                  <td>Required</td>
+                  <td>
+                    Stored as "First Last", the sign-up form collects them as
+                    separate fields and the server joins them before insert
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">username</code></td>
+                  <td>varchar</td>
+                  <td>Required, Unique</td>
+                  <td>Used for login</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">email</code></td>
+                  <td>varchar</td>
+                  <td>Required, Unique</td>
+                  <td>Used for login and password reset</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">phone</code></td>
+                  <td>varchar</td>
+                  <td>Required</td>
+                  <td>Contact number in 123-456-7890 format</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">password_hash</code></td>
+                  <td>varchar</td>
+                  <td>Required</td>
+                  <td>
+                    Hashed with <code>password_hash()</code>, never stored in
+                    plain text
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">reset_token</code></td>
+                  <td>varchar</td>
+                  <td>&mdash;</td>
+                  <td>Temporary token used during the password-reset flow</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">reset_token_expires</code></td>
+                  <td>datetime</td>
+                  <td>&mdash;</td>
+                  <td>
+                    Expiry timestamp for the reset token (1 hour after creation)
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">created_at</code></td>
+                  <td>timestamp</td>
+                  <td>Auto-generated</td>
+                  <td>Records when the account was registered</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="entity-block">
+            <p class="entity-header">User Profiles</p>
+            <p class="entity-purpose">
+              Builds the digital portfolio and manages the privacy needs of
+              young users. Contains personal details, education info, and
+              parental consent verification status.
+            </p>
+            <p class="revision-note">
+              I made changes to User Profiles because I wanted to create a more
+              general and clear idea as for the default page for the user to
+              change it up to represent them.
+            </p>
+            <table class="revised">
+              <thead>
+                <tr>
+                  <th class="col-field">Field</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-const">Constraints</th>
+                  <th class="col-notes">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="field-name">id</code></td>
+                  <td>int(11)</td>
+                  <td>Primary Key, NOT NULL</td>
+                  <td>Unique identifier for each profile</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">name</code></td>
+                  <td>varchar(100)</td>
+                  <td>&mdash;</td>
+                  <td>Full name of user</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">headline</code></td>
+                  <td>varchar(255)</td>
+                  <td>&mdash;</td>
+                  <td>Current Profession</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">location</code></td>
+                  <td>varchar(100)</td>
+                  <td>&mdash;</td>
+                  <td>Location of user</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">about</code></td>
+                  <td>text</td>
+                  <td>&mdash;</td>
+                  <td>Short description of the user</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">profilePic</code></td>
+                  <td>varchar(255)</td>
+                  <td>Default: 'Placeholder.jpg'</td>
+                  <td>Path to profile image</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">status</code></td>
+                  <td>varchar(20)</td>
+                  <td>Default: 'Pending'</td>
+                  <td>Controls user's current status</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">profile_pic</code></td>
+                  <td>varchar(500)</td>
+                  <td>&mdash;</td>
+                  <td>Path to profile image (updated)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="entity-block">
+            <p class="entity-header">Projects</p>
+            <p class="entity-purpose">
+              Allows users to showcase hands-on work and practical skills to
+              potential mentors or employers. Stores project titles,
+              descriptions, and external links or media demonstrating a
+              student's achievements.
+            </p>
+            <p class="revision-note">
+              As for the reason why I made these changes was because I wanted to
+              make it more clearer.
+            </p>
+            <table class="revised">
+              <thead>
+                <tr>
+                  <th class="col-field">Field</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-const">Constraints</th>
+                  <th class="col-notes">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="field-name">id</code></td>
+                  <td>int</td>
+                  <td>Primary Key, NOT NULL</td>
+                  <td>Unique identifier for each project entry</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">user_id</code></td>
+                  <td>int</td>
+                  <td>Foreign Key &rarr; User</td>
+                  <td>Links the project to its author</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">title</code></td>
+                  <td>String</td>
+                  <td>Required</td>
+                  <td>Short project name shown on the portfolio</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">project_name</code></td>
+                  <td>varchar(255)</td>
+                  <td>NOT NULL</td>
+                  <td>Name of the project</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">description</code></td>
+                  <td>text</td>
+                  <td>NOT NULL</td>
+                  <td>Detailed explanation of the project</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">project_link</code></td>
+                  <td>String</td>
+                  <td>&mdash;</td>
+                  <td>External URL (e.g., GitHub repo, live demo)</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">created_at</code></td>
+                  <td>Timestamp</td>
+                  <td>Auto-generated</td>
+                  <td>Records when the project was added</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="entity-block revised">
+            <p class="entity-header">Education</p>
+            <p class="entity-purpose">
+              Stores education history for each user so they can showcase their
+              academic background on their portfolio.
+            </p>
+            <p class="revision-note">
+              I created an Education table because I wanted to make a section
+              where users are able to show what kind of education they received.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th class="col-field">Field</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-const">Constraints</th>
+                  <th class="col-notes">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="field-name">id</code></td>
+                  <td>int</td>
+                  <td>Primary Key, NOT NULL</td>
+                  <td>Unique identifier for each education entry</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">user_id</code></td>
+                  <td>int</td>
+                  <td>Foreign Key, NOT NULL</td>
+                  <td>Links the education to a specific user</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">title</code></td>
+                  <td>varchar(255)</td>
+                  <td>NOT NULL</td>
+                  <td>Details about the education or achievements</td>
+                </tr>
+                <tr>
+                  <td><code class="field-name">created_at</code></td>
+                  <td>Timestamp</td>
+                  <td>Auto-generated</td>
+                  <td>Records when the entry was added</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
 
     <p class="section-label">Functions Performed by the app</p>
     <div>
-        <div class="card">
-            <table>
-                <tr>
-                    <th>
-                        Functionality
-                    </th>
-                    <th>
-                        Implementation
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Login
-                    </td>
-                    <td>
-                        - INSERT: If user wants to create a new account
-                        Includes new username and password, and username must be unique
-                        <br>
-                        - SELECT: Find if username and password is in database
-                        <br>
-                        - Generate a session using PHP for users to use on profile page
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Dashboard
-                    </td>
-                    <td>
-                        - SELECT: Other user profile and a short description from their about page (Clickable to view others profiles)
-                        <br>
-                        - Includes buttons to your own profile
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Update Profile
-                    </td>
-                    <td>
-                        - Generate a session using PHP to verify user
-                        <br>
-                        - SELECT: Find the user's information on the database
-                        <br>
-                        - UPDATE: Users allowed to edit prebuilt sections and add their own descriptions
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Admin
-                    </td>
-                    <td>
-                        - SELECT: finds statistics about users (age, birthday, etc) and displays them
-                        <br>
-                        - UPDATE: Can add to profiles statuses like verified
-                    </td>
-                </tr>
-            </table>
-        </div>
+      <div class="card">
+        <p class="revision-note">
+          A more detailed update on the login and registration dashboard
+          functionality, including specific references to functions, database
+          tables, and related components to provide greater clarity.
+        </p>
+        <table>
+          <tr>
+            <th>Functionality</th>
+            <th>Implementation</th>
+          </tr>
+          <tr class="revised">
+            <td>Login</td>
+            <td>
+              - SELECT the user row from <code>users_y2o</code> matching the
+              submitted username or email (users can log in with either).
+              <br />
+              - Verify the submitted password against the stored hash using
+              <code>password_verify()</code>. If it doesn't match, return an
+              "Invalid credentials" error.
+              <br />
+              - On success, start a PHP session, regenerate the session ID to
+              prevent session fixation, and store the user's ID and username in
+              <code>$_SESSION</code> so they stay logged in across pages on the
+              dashboard.
+            </td>
+          </tr>
+          <tr class="revised">
+            <td>Sign Up</td>
+            <td>
+              - INSERT a new row into <code>users_y2o</code> with the user's
+              first name, last name, username, email, phone, and hashed
+              password. Before inserting, run a SELECT to check that the
+              username and email aren't already taken. If either is in use,
+              return a friendly error and block the registration.
+              <br />
+              - Hash the password with PHP's <code>password_hash()</code> before
+              storing.
+              <br />
+              - Validate all fields server-side (name format, email format,
+              username length) using <code>filter_var</code> and regex patterns,
+              so the check doesn't rely on the browser alone.
+            </td>
+          </tr>
+          <tr class="revised">
+            <td>Logout</td>
+            <td>
+              Destroy the PHP session (<code>session_unset()</code> +
+              <code>session_destroy()</code>) so the user is signed out and
+              protected session data is cleared.
+            </td>
+          </tr>
+          <tr class="revised">
+            <td>Password Reset</td>
+            <td>
+              - SELECT the user by email to confirm the account exists, then
+              generate a secure random reset token with
+              <code>random_bytes()</code> and UPDATE the user's row to store the
+              token with a 1-hour expiry.
+              <br />
+              - When the user submits a new password on the reset page, SELECT
+              the user matching the token (and where the token hasn't expired),
+              then UPDATE the row with the new hashed password and clear the
+              token fields.
+            </td>
+          </tr>
+          <tr>
+            <td>Dashboard</td>
+            <td>
+              - SELECT: Other user profile and a short description from their
+              about page (Clickable to view others profiles)
+              <br />
+              - Includes buttons to your own profile
+            </td>
+          </tr>
+          <tr>
+            <td>Update Profile</td>
+            <td>
+              - Generate a session using PHP to verify user
+              <br />
+              - SELECT: Find the user's information on the database
+              <br />
+              - UPDATE: Users allowed to edit prebuilt sections and add their
+              own descriptions
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="revised">Admin + Admin Login</span>
+            </td>
+            <td>
+              - SELECT: finds
+              <span class="revised"
+                >specific users based on the statuses, names, etc</span
+              >
+              and displays them
+              <br />
+              - UPDATE: Can add to profiles statuses like verified<span
+                class="revised"
+                >, updates the count on the boxes</span
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <p class="section-label">Roles of Team Members</p>
     <div>
-        <div class="card">
-            <table>
-                <tr>
-                    <th>
-                        Team Member Name
-                    </th>
-                    <th>
-                        Page responsibility
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Shreeya
-                    </td>
-                    <td>
-                        Login page
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Tony
-                    </td>
-                    <td>
-                        Dashboard page
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Omar
-                    </td>
-                    <td>
-                        Profile page and editor
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Murad 
-                    </td>
-                    <td>
-                        Admin Page
-                    </td>
-                </tr>
-            </table>
-        </div>
+      <div class="card">
+        <table>
+          <tr>
+            <th>Team Member Name</th>
+            <th>Page responsibility</th>
+          </tr>
+          <tr>
+            <td>Shreeya</td>
+            <td>
+              <span class="revised">Main Login/Registration page</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Tony</td>
+            <td>Dashboard page</td>
+          </tr>
+          <tr>
+            <td>Omar</td>
+            <td>Profile page and editor</td>
+          </tr>
+          <tr>
+            <td>Murad</td>
+            <td>
+              <span class="revised">Admin Page + Admin Login</span>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <p class="section-label">Wireframes</p>
     <div>
-        <div class="card">
-            <h4>Login Page</h4>
-            <img src = "images/login.png">
-            <img src = "images/sign_up.png">
-            <h4>Dashboard Page</h4>
-            <img src = "images/dashboard.png">
-            <h4>Profile Page</h4>
-            <img src = "images/profile_page.png">
-            <h4>Admin Page</h4>
-            <img src = "images/admin.png">
-        </div>
+      <div class="card">
+        <h4>Login Page</h4>
+        <img src="images/login.png" />
+        <img src="images/sign_up.png" />
+
+        <h4>Dashboard Page</h4>
+        <img src="images/dashboard.png" />
+        <p class="revision-note">
+          Changes include missing elements for age, account creation, and last
+          login. Small differences in user interface including change to using
+          the small logo, different coloring for status, bubble wrapping users
+          displayed on the dashboard instead of table format. The sidebar only
+          reflects current pages available, so home page (dashboard) and profile
+          page.
+        </p>
+
+        <h4>Profile Page</h4>
+        <img src="images/profile_page.png" />
+        <p class="revision-note">
+          Initially, we planned to design it similar to LinkedIn's profile
+          editor section. However, after presenting it to our client, they
+          suggested making it more distinct to avoid direct resemblance. As a
+          result, the final profile page in our last increment differs from the
+          original prototype wireframe.
+        </p>
+
+        <h4>Admin Page</h4>
+        <img src="images/admin.png" />
+        <p class="revision-note">
+          Due to time constraints, we were unable to implement graphs on the
+          admin portal, so we instead used numbered boxes to display the key
+          statistics.
+        </p>
+      </div>
     </div>
 
     <p class="section-label">The increments</p>
-    <div >
+    <div>
+      <div class="card">
+        <h4>Description</h4>
+        <p>
+          This first increment
+          <span class="revised">due for April 7th</span> focuses on deploying
+          the application to the McMaster server, establishing the core user
+          interface, and ensuring that basic backend routing is functional
+          across the platform.
+        </p>
+        <p>
+          For the final increment
+          <span class="revised">due for April 19th</span>, the team will
+          transition to refining the UI,
+          <span class="revised"
+            >ensuring consistent design between the pages,</span
+          >
+          establishing fully functional backend routing for all features, and
+          successfully connecting the platform to the database to ensure
+          persistent, dynamic data storage.
+        </p>
         <div class="card">
-            <h4>Description</h4>
-            <p>
-                This first increment focuses on deploying the application to the McMaster server, 
-                establishing the core user interface, and ensuring that basic backend routing is functional 
-                across the platform. For the final increment (due in the middle of exam season), the team will 
-                transition to refining the UI, establishing fully functional backend routing for all features, 
-                and successfully connecting the platform to the database to ensure persistent, dynamic data storage.
-            </p>
-            <div class="card">
-            <table>
-                <tr>
-                    <th>
-                        Team Member
-                    </th>
-                    <th>
-                        Feature Focus
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Shreeya
-                    </td>
-                    <td>
-                        Login page
-                    </td>
-                    <td>
-                        Functioning login and signup forms. 
-                        This includes basic client-side input validation (e.g., password strength and length checks) 
-                        and successful routing to the main dashboard upon submission.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Tony
-                    </td>
-                    <td>
-                        User Dashboard
-                    </td>
-                    <td>
-                        A user feed that displays a brief preview of multiple users in a carousel-type 
-                        format, including a couple of sentences from their "About" sections. 
-                        It will also include a sidebar navigation menu linking to the user's personal profile.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Omar
-                    </td>
-                    <td>
-                        Profile page and editor
-                    </td>
-                    <td>
-                        A page structured to display an "About" section, project showcases, and user skills. 
-                        It will feature a functional file upload button that successfully 
-                        selects a file and logs the data to the console.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Murad 
-                    </td>
-                    <td>
-                        Admin Portal
-                    </td>
-                    <td>
-                        A dashboard displaying high-level platform analytics 
-                        (e.g., total registered youth, new signups, age demographics). 
-                        It will include the initial UI allowing admins to assign specific statuses, 
-                        such as a "Verified" badge, to user profiles.
-                    </td>
-                </tr>
-            </table>
+          <table>
+            <tr>
+              <th>Team Member</th>
+              <th>Feature Focus</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Shreeya</td>
+              <td>Login page</td>
+              <td>
+                Functioning login and signup forms. This includes basic
+                client-side input validation (e.g., password strength and length
+                checks) and successful routing to the main dashboard upon
+                submission.
+              </td>
+            </tr>
+            <tr>
+              <td>Tony</td>
+              <td>User Dashboard</td>
+              <td>
+                A user feed that displays a brief preview of multiple users in a
+                carousel-type format, including a couple of sentences from their
+                "About" sections. It will also include a sidebar navigation menu
+                linking to the user's personal profile.
+              </td>
+            </tr>
+            <tr>
+              <td>Omar</td>
+              <td>Profile page and editor</td>
+              <td>
+                A page structured to display an "About" section,
+                <span class="revised">projects section</span>, and user skills.
+                It will feature a functional file upload button that
+                successfully selects a file and logs the data to the console.
+              </td>
+            </tr>
+            <tr>
+              <td>Murad</td>
+              <td>
+                <span class="revised">Admin Portal + Admin Login Page</span>
+              </td>
+              <td>
+                A dashboard displaying high-level platform analytics (e.g.,
+                total registered youth, new signups,
+                <span class="revised"
+                  >verified profiles, pending verification, location
+                  demographics</span
+                >). It will include the initial UI allowing admins to
+                <span class="revised">manage</span> specific statuses, such as a
+                "Verified" badge, to user profiles.
+                <span class="revised"
+                  >An admin login page was also introduced to streamline access
+                  for admins managing the dashboard.</span
+                >
+              </td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
 
     <p class="section-label">Client Feedback</p>
     <div>
+      <div class="card">
+        <h4>Meeting synopsis</h4>
         <div class="card">
-            <h4>Meeting synopsis</h4>
-            <div class = "card">
-                <p>During our initial consultation with the Youth2Opportunities (Y2O) team, their primary requirements were straightforward: 
-                    a secure login/registration flow and a customizable user profile page for the youth. 
-                    They granted us significant creative freedom regarding the design and user experience.
-                </p>
-            </div>
-            <div class = "card">
-                <p>
-                    When we presented our ideas, which included adding a centralized User Dashboard to view peers and an Admin Portal for Y2O staff, 
-                    they were highly receptive. 
-                    <b>
-                    We plan to collect further, formal feedback on the first coded iteration during Week 12, 
-                    prior to Lab 12.2 to meet the deadline for the first increment.
-                    </b>
-                </p>
-            </div>
-            <div class = "card">
-                <h4>Meeting points</h4>
-                <ul>
-                    <li>
-                        They really liked our idea to include a central dashboard 
-                        where youth can see other members' as it really aligns with our goal of community building."
-                    </li>
-                    <li>
-                        For the admin page you proposed, they loved the analytics. 
-                        They wanted to integrate age demographics and region.
-                    </li>
-                    <li>
-                        Their major request is to keep the interface very clean and accessible. 
-                        They don't want the profile editor to feel too overwhelming for a high schooler filling it out for the first time.
-                    </li>
-                        For the user profile editor section, they also mentioned the
-                         ability for users to upload files from their computer to add onto their portfolio.
-                    </li>
-                </ul>
-            </div>
+          <p>
+            During our initial consultation with the Youth2Opportunities (Y2O)
+            team, their primary requirements were straightforward: a secure
+            login/registration flow and a customizable user profile page for the
+            youth. They granted us significant creative freedom regarding the
+            design and user experience.
+          </p>
         </div>
-    </div>
+        <div class="card">
+          <p>
+            When we presented our ideas, which included adding a centralized
+            User Dashboard to view peers and an Admin Portal for Y2O staff, they
+            were highly receptive.
+            <b>
+              We plan to collect further, formal feedback on the first coded
+              iteration during Week 12, prior to Lab 12.2 to meet the deadline
+              for the first increment.
+            </b>
+          </p>
+        </div>
+        <div class="card">
+          <h4>
+            Meeting points
+            <span class="revised"
+              >(from before April 7th first increment deadline)</span
+            >
+          </h4>
+          <ul>
+            <li>
+              They really liked our idea to include a central dashboard where
+              youth can see other members' as it really aligns with our goal of
+              community building."
+            </li>
+            <li>
+              For the admin page you proposed, they loved the analytics. They
+              wanted to integrate age demographics and region.
+            </li>
+            <li>
+              Their major request is to keep the interface very clean and
+              accessible. They don't want the profile editor to feel too
+              overwhelming for a high schooler filling it out for the first
+              time.
+            </li>
+            <li>
+              For the user profile editor section, they also mentioned the
+              ability for users to upload files from their computer to add onto
+              their portfolio.
+            </li>
+          </ul>
+        </div>
 
-    <div class="card">
-        <h4>Changes Made</h4>
-            <ul>
-                <li>
-                    We officially integrated the User Dashboard (Tony) 
-                    and the Admin Portal (Murad) into our development plan and deliverables, 
-                    as the client confirmed these added significant value beyond their initial scope.
-                </li>
-                <li>
-                    Based on the request for outreach tracking, we updated the requirements for 
-                    Murad's Admin Portal. Alongside age demographics, the initial UI 
-                    and backend data structure will now prioritize sorting and displaying users by "Region."
-                </li>
-                <li>
-                    We added the upload button to the profile editor so that youth could directly attach their resumes or external portfolio documents. 
-                    To accommodate this new Upload Portal without making the interface overwhelming, 
-                    Omar is designing the editor with distinct, visually separated sections 
-                    (About, Projects, Skills, and Uploads) rather than one massive form. 
-                    We are prioritizing clear placeholder text and a minimalist UI to ensure accessibility.
-                </li>
-            </ul>
+        <div class="card">
+          <h4>Changes Made</h4>
+          <ul>
+            <li>
+              We officially integrated the User Dashboard (Tony) and the Admin
+              Portal (Murad) into our development plan and deliverables, as the
+              client confirmed these added significant value beyond their
+              initial scope.
+            </li>
+            <li>
+              Based on the request for outreach tracking, we updated the
+              requirements for Murad's Admin Portal. The initial UI and backend
+              data structure now enables sorting and displaying users by
+              "Region."
+            </li>
+            <li>
+              <s class="revised"
+                >We added the upload button to the profile editor so that youth
+                could directly attach their resumes or external portfolio
+                documents.</s
+              >
+              To accommodate this new Upload Portal without making the interface
+              overwhelming, Omar is designing the editor with distinct, visually
+              separated sections
+              <b class="revised">(About, Education, Projects)</b> rather than
+              one massive form. We are prioritizing clear placeholder text and a
+              minimalist UI to ensure accessibility.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card revised">
+          <h4>
+            Meeting points (from before April 19th final increment deadline)
+          </h4>
+          <p>
+            We didn't have the chance to show the final product to the client
+            yet, we plan to on Sunday April 26th.
+          </p>
+          <ul>
+            <li>
+              Overall, they were very satisfied with the improvements we made
+              since the last increment. Although we had originally planned to
+              add an upload button to the profile editor so students could
+              attach resumes and other documents, we ran out of time. The
+              clients were very understanding of our workload and remained
+              flexible.
+            </li>
+            <li>
+              For the main login/registration dashboard, the clients suggested
+              we have "First Name", "Last Name" input boxes instead of "Full
+              Name". They also suggested removing the alert boxes for
+              professionalism. <b>Change made!</b>
+            </li>
+            <li>
+              They suggested changing the admin portal design to make it match
+              the rest of the pages, and the admin login page to match the main
+              login page design. <b>Change made!</b>
+            </li>
+            <li>
+              The client asked for the search feature to be implemented on the
+              dashboard for users to search for others easily.
+              <b>Change made!</b>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <p>© 2026 The 404s</p>
-        <p>McMaster University · Hamilton, ON</p>
+      <p>© 2026 The 404s</p>
+      <p>McMaster University · Hamilton, ON</p>
     </footer>
-</body>
-
+  </body>
 </html>
